@@ -1,0 +1,468 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Castração Voluntária</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+<!-- Wrapper -->
+	<div id="wrapper">
+
+<!-- Introduçao -->
+	<section class="intro">
+		<header>
+			<h1>Castração Voluntária</h1>
+			<p>Desenvolvido por <a href="https://univesp.br/">alunos da Univesp</a> 
+			<ul class="actions">
+				<li><a href="#first" class="arrow scrolly"><span class="label">Next</span></a></li>
+</ul>
+</header>
+<div class="content">
+		<span class="image fill" data-position="center"><img src="images/cat adoção 1.jpg" alt="" /></span>
+	</div>
+</section>
+
+	<!-- Seção apresentação -->
+<section id="first">
+	<header>
+		<h2>Apresentação</h2>
+	</header>
+	<div class="content">
+		<p><strong>Objetivo:</strong> Esta página web tem como propósito conectar conectar voluntários e pessoas em situação de vulnerabilidade
+			que possuem animais de estimação (cães e gatos) que necessitam serem castrados, mas não possuem 
+			condições financeiras para realizar o procedimento.
+			Com a iniciativa de alunos da universidade UNIVESP como forma de contribuir com a 
+			comunidade, espera-se que através deste projeto haja conscientização e diminuição do índice de abandono de animais no Brasil.</p>
+			<p>Para tanto, foi disponibilizado dois formuláros, um para cadastro de veterinários de qualquer localidade, que possa 
+			contribuir realizando castração voluntária para cães e gatos. 
+			Outro para pessoas em situação de vulnerabilidade socioeconomica que possuem animais para castração.
+		</p>
+		<p> Se você se enquadra em uma das alternativas, faça seu cadastro! </p>
+
+<!-- Seção formulários de cadastro -->
+<section>
+	<header>
+	<h2>Faça seu cadastro!</h2>
+	</header>
+	<div class="content">
+
+	<ul class="actions">
+		<li><a href="formsvet.html" class="button primary large">Veterinário</a></li>
+		<li><a href="formscas.html" class="button large">Quero castrar</a></li>
+	</ul>
+	</div>
+
+	</section>
+	<span class="image main"><img src="images/dog adoção 5.jpg" alt="" /></span>
+	</div>
+	</section>
+
+<!-- Seção benfícios -->
+<section>
+	<header>
+		<h2>Benefícios da castração</h2>
+	</header>
+	<div class="content">
+		<p><strong>Por que é aconselhável castrar?</strong> Apesar de existirem muitos mitos sobre a castração 
+			antes do primeiro cio em femêas, a castração de cadelas e gatas só trás benefícios aos animais.</p>
+			<p>Dentre eles, a principal motivação é a redução do risco de câncer de mama em 99% em cadelas e 
+			50% em gatas. Evitar fugas e tornar a o animal mais dócil também é citado.</p>
+			<p>A castração também é fundamental para evitar que os animais acabam se multiplicando e assim controlar
+			a natalidade e evitar o abandono. </p>
+			<p><b>Fonte:</b><a href="https://www.worldanimalprotection.org.br/not%C3%ADcia/desmitificando-veja-8-beneficios-da-castracao"> Desmitificando: veja 8 benefícios da castração</a></p>
+	</div>
+</section>
+
+	<!-- Seção estatística -->
+		<section>
+			<header>
+				<h2>Índice de abandono no Brasil</h2>
+			</header>
+			<div class="content">
+<p><strong>Abandono no Brasil:</strong> Com quase 9 milhões de pets em situações de vunerabilidade, 
+	o Brasil necessita de diversas ferramentas para combater esse crescente problema das ruas do país. 
+	A castração é uma das mais eficientes formas de mitigar esses números. Somente entre 2018 e 2020 o 
+	aumento de animais de rua foi de 126%, sendo dois terços cães e um terço gatos. 
+	Castrar fêmeas antes do primeiro cio ajuda conter o crescimento destes números e consequentemente 
+	diminui o sofrimento destes animais.</p>
+
+<!--Gráfico de barras-->
+
+<style> /* CSS styling */
+
+	body {
+		font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+		font-size: 14px;
+	}
+  
+	.bar {
+	  border: 1px solid #1b0436;
+	  border-radius: 6px;
+	}
+  
+	#viz.barText {
+	  fill: #f5faf8;
+	  font-weight: 500;
+	}
+  
+	.axisY text, .axisX text, .headerText text{
+	  fill: #1b0436;
+	}
+  
+	#viz svg {
+	  background-color: #ffffff;
+	}
+  
+  </style>
+
+	<div class='container'>
+	  <div id='viz'></div>
+	</div>
+  <script src='https://d3js.org/d3.v4.min.js'></script>
+  <script>
+  
+   //Criamos os dados de nosso gráfico
+  var someData = [ {key: 'Sudeste', value: 83935},
+				   {key: 'SUl', value: 33172},
+				   {key: 'Nordeste', value: 32669},
+				   {key: 'Norte', value: 21613},
+				   {key: 'Centro-Oeste', value: 13571},			
+  ];
+   
+  //Retorna todas as keys, como se tivesse feito um loop em um array.
+  var keys  = someData.map(function(d){ return d.key; });
+  //Retorna todos os values, como se tivesse feito um loop em um array.  
+  var values = someData.map(function(d){ return d.value; });
+  
+  var minValue = d3.min(someData.map(function(d){ return d.value; }));  
+  var maxValue = d3.max(someData.map(function(d){ return d.value; })); 
+  var mediumValue = maxValue / 2;
+	
+  var colorBar = d3.scaleLinear()
+				 .domain([minValue, mediumValue, maxValue])
+				 .range(["acquamarine", "salmon","salmon"])
+	
+  //Aqui só definimos uma margim para o gráfico.
+  var margin = {top: 50, right: 10, bottom: 20, left: 50},
+	  width = 500 - margin.left - margin.right,
+	  height = 300 - margin.top - margin.bottom;
+  
+  //Criamos a escala maxima para o gráfico, de acordo com a largura/altura
+  var xScale = d3.scaleBand().rangeRound([0, width]).padding(0.2),
+	  yScale = d3.scaleLinear().rangeRound([height, 0]);
+  
+  //Queremos que na xScale contenha as keys
+  xScale.domain(keys);
+  
+  //Queremos que na yScale contenha os values de (0 - valorMaximoDoValues)
+  yScale.domain([0, d3.max(values)]);
+  
+  // Appending the svg object to the div on the page
+  var svg = d3.select('#viz').append('svg')
+	  .attr('width', width + margin.left + margin.right)
+	  .attr('height', height + margin.top + margin.bottom);
+  
+  // Appending the 'group' element to the svg
+  // Moving the 'group' element to the top left margin
+  var g = svg.append('g')
+	  .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+  
+  // Adding header to the chart
+  g.attr('class', 'headerText')
+	 .append('text')
+	 .attr('transform', 'translate(' + (width / 2) + ',' + (-margin.top / 2) + ')')
+	 .attr('text-anchor', 'middle')
+	 .attr('font-weight', 600)
+	 .text('Animais Abandonados por região o Brasil');
+  
+  // Appending X axis and formatting the text
+  g.append('g')
+	  .attr('class', 'axisX')
+	  .attr('transform', 'translate(0,' + height + ')')
+	  .call(d3.axisBottom(xScale))
+	  .attr('font-weight', 'bold');
+  
+  // Appending Y axis
+  g.append('g')
+	  .attr('class', 'axisY')
+	  .call(d3.axisLeft(yScale).ticks(9));
+  
+  // Creating chart
+  var chart = g.selectAll('bar')
+	  .data(someData)
+	  .enter().append('g')
+  
+  // Appending bar chart to the chart
+  chart.append('rect')
+	  .attr('class', 'bar')
+	  .style("fill", function(d){
+		return colorBar(d.value);
+	   })
+	  .attr('x', function(d) { return xScale(d.key); })
+	  .attr('height', function(d) { return height - yScale(d.value); })
+	  .attr('y', function(d) { return yScale(d.value); })
+	  .attr('width', xScale.bandwidth());
+  
+  // Appending text to each bar chart
+  chart.append('text')
+	  .attr('class', 'barText')
+	  .attr('x', function(d) { return xScale(d.key); })
+	  .attr('y', function(d) { return yScale(d.value); })
+	  .attr('dx', xScale.bandwidth()/2)
+	  .attr('dy', 20)
+	  .attr('text-anchor', 'middle')
+	  .text(function(d){ return d.value });
+  
+  // Adding mouseover and mouseout functions to the chart
+  chart.on('mouseover', function(d){
+		d3.select(this).attr('opacity', 0.7);
+		})
+	  .on('mouseout', function(d){
+		d3.select(this)
+		  .attr('opacity', 1)});
+  </script>
+  
+
+  <!--Gráfico de barras 2-->
+
+  <style> /* CSS styling */
+  
+	  body {
+		  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+		  font-size: 14px;
+	  }
+	
+	  .bar {
+		border: 1px solid #0b3536;
+		border-radius: 6px;
+	  }
+	
+	  #viz.barText {
+		fill: #f5faf8;
+		font-weight: 500;
+	  }
+	
+	  .axisY text, .axisX text, .headerText text{
+		fill: #0b3536;
+	  }
+	
+	  #viz svg {
+		background-color: #ffffff;
+	  }
+	
+	</style>
+
+	  <div class='container'>
+		<div id='viz'></div>
+	  </div>
+	<script src='https://d3js.org/d3.v4.min.js'></script>
+	<script>
+	
+	 //Criamos os dados de nosso gráfico
+	var someData = [ 
+					 {key: 'Cães vulneráveis', value: 6},
+					 {key: 'Gatos Vulneráveis', value: 3},
+					
+	];
+	 
+	//Retorna todas as keys, como se tivesse feito um loop em um array.
+	var keys  = someData.map(function(d){ return d.key; });
+	//Retorna todos os values, como se tivesse feito um loop em um array.  
+	var values = someData.map(function(d){ return d.value; });
+	
+	var minValue = d3.min(someData.map(function(d){ return d.value; }));  
+	var maxValue = d3.max(someData.map(function(d){ return d.value; })); 
+	var mediumValue = maxValue / 2;
+	  
+	var colorBar = d3.scaleLinear()
+				   .domain([minValue, mediumValue, maxValue])
+				   .range(["acquamarine", "salmon","salmon"])
+	  
+	//Aqui só definimos uma margim para o gráfico.
+	var margin = {top: 50, right: 10, bottom: 20, left: 50},
+		width = 500 - margin.left - margin.right,
+		height = 300 - margin.top - margin.bottom;
+	
+	//Criamos a escala maxima para o gráfico, de acordo com a largura/altura
+	var xScale = d3.scaleBand().rangeRound([0, width]).padding(0.2),
+		yScale = d3.scaleLinear().rangeRound([height, 0]);
+	
+	//Queremos que na xScale contenha as keys
+	xScale.domain(keys);
+	
+	//Queremos que na yScale contenha os values de (0 - valorMaximoDoValues)
+	yScale.domain([0, d3.max(values)]);
+	
+	// Appending the svg object to the div on the page
+	var svg = d3.select('#viz').append('svg')
+		.attr('width', width + margin.left + margin.right)
+		.attr('height', height + margin.top + margin.bottom);
+	
+	// Appending the 'group' element to the svg
+	// Moving the 'group' element to the top left margin
+	var g = svg.append('g')
+		.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+	
+	// Adding header to the chart
+	g.attr('class', 'headerText')
+	   .append('text')
+	   .attr('transform', 'translate(' + (width / 2) + ',' + (-margin.top / 2) + ')')
+	   .attr('text-anchor', 'middle')
+	   .attr('font-weight', 600)
+	   .text('População de Cães e Gatos vulneráveis (em milhões)');
+	
+	// Appending X axis and formatting the text
+	g.append('g')
+		.attr('class', 'axisX')
+		.attr('transform', 'translate(0,' + height + ')')
+		.call(d3.axisBottom(xScale))
+		.attr('font-weight', 'bold');
+	
+	// Appending Y axis
+	g.append('g')
+		.attr('class', 'axisY')
+		.call(d3.axisLeft(yScale).ticks(9));
+	
+	// Creating chart
+	var chart = g.selectAll('bar')
+		.data(someData)
+		.enter().append('g')
+	
+	// Appending bar chart to the chart
+	chart.append('rect')
+		.attr('class', 'bar')
+		.style("fill", function(d){
+		  return colorBar(d.value);
+		 })
+		.attr('x', function(d) { return xScale(d.key); })
+		.attr('height', function(d) { return height - yScale(d.value); })
+		.attr('y', function(d) { return yScale(d.value); })
+		.attr('width', xScale.bandwidth());
+	
+	// Appending text to each bar chart
+	chart.append('text')
+		.attr('class', 'barText')
+		.attr('x', function(d) { return xScale(d.key); })
+		.attr('y', function(d) { return yScale(d.value); })
+		.attr('dx', xScale.bandwidth()/2)
+		.attr('dy', 0)
+		.attr('text-anchor', 'middle')
+		.text(function(d){ return d.value });
+	
+	// Adding mouseover and mouseout functions to the chart
+	chart.on('mouseover', function(d){
+		  d3.select(this).attr('opacity', 0.7);
+		  })
+		.on('mouseout', function(d){
+		  d3.select(this)
+			.attr('opacity', 1)});
+	
+	</script>
+	</body>
+	<b>Fonte:</b> <a href="https://institutopetbrasil.com/fique-por-dentro/numero-de-animais-de-estimacao-em-situacao-de-vulnerabilidade-mais-do-que-dobra-em-dois-anos-aponta-pesquisa-do-ipb/"> Número de animais de estimação em situação de vulnerabilidade mais do que dobra em dois anos, aponta pesquisa do IPB</a></p>
+
+<!-- Seção ONG e Canis  -->
+<section>
+	<header>
+		<h2>ONGs e Instituições de proteção aos animais</h2>
+		<p>Papel das ONGs e das instituições protetoras é justamente atuar na situaão de abondono de animais.
+			Através de voluntários, essas entidades oferecem abrigos aos animais abandonados para retira-los das ruas, 
+			onde muitas vezes acabam sofrendo violência e maus tratos. 
+			Muitas destas entidades que estão espalhadas pelo Brasil, não possuem fonte de renda e não recebem nenhum recurso 
+			proveniente do governo. Necessitam do apoio da população e de promoção de eventos e campanhas beneficentes. 
+			Estas entidades são importântes no controle da natalidade e redução do índice de abandono. 
+			No final da página, possuí um cadastro para que pessoas dispostas a apoiar a causa possam entrar em contato. 
+			Seja um apoiador!
+			 <html lang="en">
+			<head>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>Document</title>
+			</head>
+			<body>
+				
+			</body>
+			</html>
+		</p>
+	
+	</header>
+	
+			<meta name="viewport" content=
+			"width=device-width, initial-scale=1.0">
+
+
+		</body>
+
+			<div class="gallery">
+				<a class="landscape">
+				<img src="images/Canil/DSC_0146.JPG" alt="" /></a>
+				<a> <img src="images/Canil/DSC_0171.JPG" alt="" /></a>
+				<a> <img src="images/Canil/DSC_0177.JPG" alt="" /></a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Seção apoiador -->
+<section>
+	<header>
+		<h2>Quer ser um apoiador?</h2>
+	</header>
+	<div class="content">
+		<p><strong>Se você gostaria de apoiar</strong> preencha os campos abaixo. Você deixará o seu contato. 
+			Quando houver uma castração, você será informado sobre os custos e caso queira poderá contribuir de alguma maneira.</p>
+		<form>
+			<div class="fields">
+				<div class="field half">
+					<input type="text" name="name" id="name" placeholder="Name" />
+				</div>
+				<div class="field half">
+					<input type="email" name="email" id="email" placeholder="Email" />
+				</div>
+				<div class="field">
+					<textarea name="message" id="message" whidth="36mp" placeholder="Message" rows="7"></textarea>
+				</div>
+			</div>
+			<ul class="actions">
+				<li><input type="submit" value="Enviar" class="button primary" /></li>
+			</ul>
+		</form>
+	</div>
+	<footer>
+		<ul class="items">
+			<li>
+				<h3>Email</h3>
+				<a href="#">castracaovoluntaria.org</a>
+			</li>
+			<li>
+				<h3>Telefone</h3>
+				<a href="#">(19)99304-4571</a>
+			</li>
+
+			
+			</li>
+		</ul>
+	</footer>
+</section>
+
+	<!-- Copyright -->
+		<div class="copyright">&copy; Desenvolvido por alunos da Univesp.</div>
+
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script src=""
+
+</body>
+</html>
